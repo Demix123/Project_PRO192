@@ -73,5 +73,25 @@ public class Person {
 
     public void setWeight(double weight) {
         this.weight = weight;
-    }    
+    } 
+    public void increaseSalary(double amount){
+        if(amount > 0){
+            salary+=amount; 
+        }
+    }
+    public void decreaseSalary(double amount){
+        if(amount >0 && amount <= salary){
+            salary-=amount;
+        }
+    }
+    @Override
+    public String toString() {
+        return ", name: " + name
+              +", Age: " + age
+              +", nationality: " + nationality
+              +", Height: " + height 
+              +", WeightL: " + weight
+              +", Salary: $" + salary;
+    }
+    
 }
