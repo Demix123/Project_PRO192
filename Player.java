@@ -71,19 +71,42 @@ public class Player extends Person {
         setPosition(position);
         setMarketValue(marketValue);
     }
+    public  double calculateGoalPerMatch(){
+        if(matchesPlayed == 0){
+            return 0;
+        }
+        return  (double)goals /  matchesPlayed;
+    }
+    public String getPlayerLv(){
+        if(goals < 10){
+            return "Average!";
+        }
+        else if(goals >10 && goals <=99){
+            return "Good!";  
+        }
+        else {
+            return "Excellent!";
+        }
+    }
+    public void increaseMarketValue(double amount){
+        if(amount >0){
+            marketValue+=amount;
+        }
+    }
+    public void decreaseMarketValue(double amount){
+        if(amount >0 && amount <= marketValue){
+            marketValue-=amount;
+        }
+    }
 @Override
    public String toString(){
        return "Player ID: "  + playerId  
-               + ", name: " + getName() 
-               + ", Age: " + getAge() 
-               + ", Nationality: " + getNationality() 
-               + ", Height: " + getHeight() 
-               + ", Weight: " + getWeight() 
+               +", " + super.toString()
                + ", Position: " + position
                + ", jerseyNumber: " + jerseyNumber
                + ", Goals: " +goals
                + ", MatchesPlayed: " + matchesPlayed 
-               + ", Salary: $" + getSalary()
                + ", MarketValue: $" + marketValue + "M";
    }
+   
 }
